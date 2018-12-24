@@ -29,6 +29,28 @@ app.use(bodyParser.json());
 //routes for app
 app.get('/',mainRoutes);
 
+//share.js functionality
+var sharejs = require('share');
+
+// set up redis server
+var redisClient;
+console.log(process.env.REDISTOGO_URL);
+if (process.env.REDISTOGO_URL) {
+  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+  redisClient = require("redis").createClient(rtg.port, rtg.hostname);
+  redisClient.auth(rtg.auth.split(":")[1]);
+} else {
+  redisClient = require("redis").createClient();
+}
+
+// options for sharejs 
+var sharejsOptions = {
+  db: {type: 'redis',client: redisClient},
+};
+
+// attach the express server to sharejs
+sharejs.server.attach(app, sharejsOptions);
+
 //port = 8000 (for localhost) or port defines for heroku
 app.set('port',(process.env.PORT || 8000));
 app.listen(app.get('port'),function(){
