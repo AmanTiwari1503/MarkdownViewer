@@ -1,11 +1,29 @@
 {
-  "name": "markdown",
+  "name": "markdownviewer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Realtime Markdown Viewer",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AmanTiwari1503/MarkdownViewer.git"
   },
-  "author": "",
-  "license": "ISC"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "markdown",
+    "realtime",
+    "sharejs"
+  ],
+  "author": "Aman Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmanTiwari1503/MarkdownViewer/issues"
+  },
+  "homepage": "https://github.com/AmanTiwari1503/MarkdownViewer#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
 }
