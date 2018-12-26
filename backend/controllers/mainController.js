@@ -1,7 +1,7 @@
 const request = require('request');
 
 module.exports = {
-	home:home
+	home:home,
 	newhome:newhome
 }
 
