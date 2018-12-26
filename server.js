@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //routes for app
-app.get('/',mainRoutes);
+app.use('/',mainRoutes);
 
 //share.js functionality
 var sharejs = require('share');
